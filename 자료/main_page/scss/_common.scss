@@ -1,0 +1,54 @@
+$default_font:'Noto Sans KR', sans-serif;
+$font_color:#080a0d;
+$default_color:#253b59;
+$mild_color:#56738c;
+$point_color:#a68051;
+$gray:#bfbfbf;
+body{
+    font-family: $default-font;
+    color:$font-color;
+    font-weight: 300;
+}
+@mixin text_style($size,$color,$align,$line) {
+    font-size:$size;
+    color:$color;
+    text-align:$align;
+    line-height: $line;
+}
+@mixin zero {
+    margin:0; padding:0;
+}
+@mixin trans($secounds) {
+    transition: all $secounds;
+}
+@mixin float_clear {
+   content:'';
+   display:block;
+   clear:both;
+   width:0; height:0;
+   visibility:hidden;
+}
+
+
+a{
+    @include text_style(14px, $font-color, center, 1);
+    text-decoration: none;
+    height: auto; width: auto;
+    display: block;
+    &:link,
+    &:visited,
+    &:hover,
+    &:active{
+        color:$font-color;
+        font-weight: 600;
+    }
+}
+html,li,ol,ul{
+    list-style:none;
+    @include zero;
+}
+
+.clear::after{
+    @include float_clear();
+}
+*{font-size: 16px; margin: 0; padding: 0;}
